@@ -1,0 +1,12 @@
+{
+    "name": "leanix-csm-node",
+    "version": "0.0.1",
+    "description": "A sample node for node-red",
+    "dependencies": {},
+    "keywords": ["node-red"],
+    "node-red": {
+        "nodes": {
+            "leanix-csm": "leanix-csm-node.js"
+        }
+    }
+}
