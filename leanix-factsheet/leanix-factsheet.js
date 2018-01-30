@@ -4,7 +4,7 @@ module.exports = function(RED) {
 
     function FactNode(config) {
         RED.nodes.createNode(this, config);
-        var token = this.credentials.token;
+        this.token = this.credentials.token;
         this.factType = config.factType;
         this.chatId = config.chatId;
         var node = this;
@@ -14,6 +14,7 @@ module.exports = function(RED) {
             var name = "";
             var send = [];
             var fact = node.factType ? node.factType : msg.factType ? msg.factType : "";
+            var token = node.token ? node.token : msg.token ? msg.token : "";
             var options = {
                 method: "GET",
                 uri: "https://vodafone.leanix.net/services/pathfinder/v1/factSheets?type=" + fact + "&pageSize=10&permissions=false",

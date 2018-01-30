@@ -4,7 +4,7 @@ module.exports = function(RED) {
 
     function GraphNode(config) {
         RED.nodes.createNode(this, config);
-        var token = this.credentials.token;
+        this.token = this.credentials.token;
         this.factType = config.factType;
         this.chatId = config.chatId;
         this.factTag = config.factTag;
@@ -21,6 +21,7 @@ module.exports = function(RED) {
             var tag = node.factTag ? node.factTag : msg.factTag ? msg.factTag : "";
             var tagId = node.factTagId ? node.factTagId : msg.factTagId ? msg.factTagId : "";
             var level = node.factLevel ? node.factLevel : msg.factLevel ? msg.factLevel : "";
+            var token = node.token ? node.token : msg.token ? msg.token : "";
             if ((tag == "" || tagId == "") && (level != "")) {
                 options = {
                     method: "POST",
