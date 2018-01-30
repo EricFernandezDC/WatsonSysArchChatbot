@@ -1,5 +1,5 @@
 {
-    "name": "node-red-leanix-watson",
+    "name": "node-red-contrib-leanix-watson",
     "version": "1.0.0",
     "description": "A set of LeaniX nodes for Node-red interacting with Watson.",
     "dependencies": {
