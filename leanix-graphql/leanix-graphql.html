@@ -1,0 +1,69 @@
+<script type="text/javascript">
+    RED.nodes.registerType('leanix-graphql', {
+        category: 'function',
+        color: '#a6bbcf',
+        defaults: {
+            name: {
+                value: ""
+            },
+            factType: {
+                value: ""
+            },
+            factTag: {
+                value: ""
+            },
+            factLevel: {
+                value: ""
+            },
+            chatId: {
+                value: ""
+            }
+        },
+        credentials: {
+            token: {
+                type: "text"
+            }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "file.png",
+        label: function() {
+            return this.name || "leanix-graphql";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="leanix-graphql">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-token"><i class="icon-tag"></i> Bearer token</label>
+        <input type="text" id="node-input-token" placeholder="Authentication Bearer Token">
+    </div>
+    <div class="form-row">
+        <label for="node-input-factType"><i class="icon-tag"></i> Factsheet type</label>
+        <input type="text" id="node-input-factType" placeholder="Enter factsheet type or pass it using msg.factType">
+    </div>
+    <div class="form-row">
+        <label for="node-input-factTag"><i class="icon-tag"></i> Factsheet tag name</label>
+        <input type="text" id="node-input-factTag" placeholder="Enter factsheet tag name or pass it using msg.factTag">
+    </div>
+    <div class="form-row">
+        <label for="node-input-factTagId"><i class="icon-tag"></i> Factsheet tag id</label>
+        <input type="text" id="node-input-factTagId" placeholder="Enter factsheet tag id or pass it using msg.factTagId">
+    </div>
+    <div class="form-row">
+        <label for="node-input-factLevel"><i class="icon-tag"></i> Factsheet level</label>
+        <input type="text" id="node-input-factLevel" placeholder="Enter factsheet level or pass it using msg.factLevel">
+    </div>
+    <div class="form-row">
+        <label for="node-input-chatId"><i class="icon-tag"></i> Chat ID</label>
+        <input type="text" id="node-input-chatId" placeholder="Enter Chat ID or pass it using msg.chatId">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="leanix-graphql">
+    <p>A simple node that uses the LeaniX REST API with GraphQL to query factsheets in a deeper way</p>
+</script>

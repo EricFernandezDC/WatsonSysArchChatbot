@@ -1,12 +1,37 @@
 {
-    "name": "leanix-csm-node",
-    "version": "0.0.1",
-    "description": "A sample node for node-red",
-    "dependencies": {},
-    "keywords": ["node-red"],
+    "name": "node-red-leanix-watson",
+    "version": "1.0.0",
+    "description": "A set of LeaniX nodes for Node-red interacting with Watson.",
+    "dependencies": {
+        "request-promise": "4.2.x"
+    },
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Rice0/WatsonSysArchChatbot.git"
+    },
+    "keywords": ["node-red", "leanix", "watson"],
+    "author": {
+        "name": "Eric Fernandez",
+        "email": "eric.fernandez@vodafone.com"
+    },
+    "maintainers": {
+        "name": "Eric Fernandez",
+        "email": "eric.fernandez@vodafone.com"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Rice0/WatsonSysArchChatbot/issues"
+    },
     "node-red": {
         "nodes": {
-            "leanix-csm": "leanix-csm-node.js"
+            "leanix-factsheet": "leanix-factsheet/leanix-factsheet.js",
+            "leanix-graphql": "leanix-graphql/leanix-graphql.js",
+            "leanix-test": "leanix-test/leanix-test.js"
         }
-    }
+    },
+    "homepage": "https://github.com/Rice0/WatsonSysArchChatbot#readme"
 }
