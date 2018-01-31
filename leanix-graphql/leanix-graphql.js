@@ -20,57 +20,23 @@ module.exports = function(RED) {
             var fact = node.factType ? node.factType : msg.factType ? msg.factType : "";
             var tag = node.factTag ? node.factTag : msg.factTag ? msg.factTag : "";
             var tagId = node.factTagId ? node.factTagId : msg.factTagId ? msg.factTagId : "";
-            var level = node.factLevel ? node.factLevel : msg.factLevel ? msg.factLevel : "";
             var token = node.token ? node.token : msg.token ? msg.token : "";
-            if ((tag == "" || tagId == "") && (level != "")) {
-                options = {
-                    method: "POST",
-                    uri: "https://vodafone.leanix.net/services/pathfinder/v1/graphql",
-                    headers: {
-                        "Authorization": "Bearer " + token,
-                        'content-type': 'application/json'
-                    },
-                    body: {
-                        query: 'query($filter: FilterInput){allFactSheets(filter: $filter){edges{node{id name}}}}',
-                        variables: {
-                            filter: { facetFilters: [{ facetKey: 'FactSheetTypes', keys: [fact] }, { facetKey: 'hierarchyLevel', keys: [level] }] }
-                        }
-                    },
-                    json: true
-                };
-            } else if ((tag == "" || tagId == "") && (level == "")) {
-                options = {
-                    method: "POST",
-                    uri: "https://vodafone.leanix.net/services/pathfinder/v1/graphql",
-                    headers: {
-                        "Authorization": "Bearer " + token,
-                        'content-type': 'application/json'
-                    },
-                    body: {
-                        query: 'query($filter: FilterInput){allFactSheets(filter: $filter){edges{node{id name}}}}',
-                        variables: {
-                            filter: { facetFilters: [{ facetKey: 'FactSheetTypes', keys: [fact] }] }
-                        }
-                    },
-                    json: true
-                };
-            } else {
-                options = {
-                    method: "POST",
-                    uri: "https://vodafone.leanix.net/services/pathfinder/v1/graphql",
-                    headers: {
-                        "Authorization": "Bearer " + token,
-                        'content-type': 'application/json'
-                    },
-                    body: {
-                        query: 'query($filter: FilterInput){allFactSheets(filter: $filter){edges{node{id name}}}}',
-                        variables: {
-                            filter: { facetFilters: [{ facetKey: 'FactSheetTypes', keys: [fact] }, { facetKey: tag, keys: [tagId] }, { facetKey: 'hierarchyLevel', keys: [level] }] }
-                        }
-                    },
-                    json: true
-                };
-            }
+            var level = node.factLevel ? node.factLevel : msg.factLevel ? msg.factLevel : [""];
+            options = {
+                method: "POST",
+                uri: "https://vodafone.leanix.net/services/pathfinder/v1/graphql",
+                headers: {
+                    "Authorization": "Bearer " + token,
+                    'content-type': 'application/json'
+                },
+                body: {
+                    query: 'query($filter: FilterInput){allFactSheets(filter: $filter){edges{node{id name}}}}',
+                    variables: {
+                        filter: { facetFilters: [{ facetKey: 'FactSheetTypes', keys: [fact] }, { facetKey: tag, keys: [tagId] }] }
+                    }
+                },
+                json: true
+            };
 
 
             request(options)
