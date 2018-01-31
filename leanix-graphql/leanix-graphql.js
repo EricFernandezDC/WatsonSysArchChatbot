@@ -4,12 +4,13 @@ module.exports = function(RED) {
 
     function GraphNode(config) {
         RED.nodes.createNode(this, config);
-        this.token = this.credentials.token;
+        this.token = config.token;
         this.factType = config.factType;
         this.chatId = config.chatId;
         this.factTag = config.factTag;
         this.factTagId = config.factTagId;
-        this.factLevel = config.factLevel;
+        this.factFilter = config.factFilter;
+        this.factFilterId = config.factFilterId;
         var node = this;
 
         var restCall = function(node, msg) {
@@ -20,8 +21,9 @@ module.exports = function(RED) {
             var fact = node.factType ? node.factType : msg.factType ? msg.factType : "";
             var tag = node.factTag ? node.factTag : msg.factTag ? msg.factTag : "";
             var tagId = node.factTagId ? node.factTagId : msg.factTagId ? msg.factTagId : "";
+            var filter = node.factFilter ? node.factFilter : msg.factFilter ? msg.factFilter : "";
+            var filter = node.factFilterId ? node.factFilterId : msg.factFilterId ? msg.factFilterId : "";
             var token = node.token ? node.token : msg.token ? msg.token : "";
-            var level = node.factLevel ? node.factLevel : msg.factLevel ? msg.factLevel : [""];
             options = {
                 method: "POST",
                 uri: "https://vodafone.leanix.net/services/pathfinder/v1/graphql",

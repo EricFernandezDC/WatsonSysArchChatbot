@@ -15,7 +15,10 @@
             factTagId: {
                 value: ""
             },
-            factLevel: {
+            factFilter: {
+                value: ""
+            },
+            factFilterId: {
                 value: ""
             },
             chatId: {
@@ -56,12 +59,16 @@
         <input type="text" id="node-input-factTagId" placeholder="Enter factsheet tag id or pass it using msg.factTagId">
     </div>
     <div class="form-row">
-        <label for="node-input-factLevel"><i class="icon-tag"></i> Factsheet level</label>
-        <input type="text" id="node-input-factLevel" placeholder="Enter factsheet level or pass it using msg.factLevel">
+        <label for="node-input-factFilter"><i class="icon-tag"></i> Factsheet Filter</label>
+        <input type="text" id="node-input-factFilter" placeholder="Enter factsheet filter or pass it using msg.factFilter">
+    </div>
+    <div class="form-row">
+        <label for="node-input-factFilterId"><i class="icon-tag"></i> Factsheet Filter ID</label>
+        <input type="text" id="node-input-factFilterId" placeholder="Enter factsheet filter or pass it using msg.factFilterId">
     </div>
     <div class="form-row">
         <label for="node-input-chatId"><i class="icon-tag"></i> Chat ID</label>
-        <input type="text" id="node-input-chatId" placeholder="Enter Chat ID or pass it using msg.chatId">
+        <input type="text" id="node-input-chatId" placeholder="Enter Chat ID or pass it using msg.chatId (use for Telegram)">
     </div>
 </script>
 
